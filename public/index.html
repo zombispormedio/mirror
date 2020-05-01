@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const connection = new WebSocket(`ws://${window.location.host}/ws`);
+
+      connection.onopen = function () {
+        console.log("open websocket");
+      };
+
+      // Log errors
+      connection.onerror = function (error) {
+        console.log("WebSocket Error " + error);
+      };
+
+      // Log messages from the server
+      connection.onmessage = function (e) {
+        console.log("Server: " + e.data);
+      };
+    </script>
+  </body>
+</html>
