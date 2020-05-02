@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "snowpack --config snowpack.json"
+    "build": "snowpack --config snowpack.json"
   },
   "repository": {
     "type": "git",
