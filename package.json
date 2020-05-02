@@ -1,0 +1,28 @@
+{
+  "name": "mirror",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "snowpack --config snowpack.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zombispormedio/mirror.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zombispormedio/mirror/issues"
+  },
+  "homepage": "https://github.com/zombispormedio/mirror#readme",
+  "devDependencies": {
+    "snowpack": "^1.7.1"
+  },
+  "dependencies": {
+    "htm": "^3.0.4",
+    "react": "npm:@pika/react@^16.13.1",
+    "react-dom": "npm:@pika/react-dom@^16.13.1",
+    "react-inspector": "^5.0.1"
+  }
+}
