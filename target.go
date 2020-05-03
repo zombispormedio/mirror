@@ -16,7 +16,7 @@ func createTargetServer() *fiber.App {
 			Sent:   time.Now(),
 			Body:   c.Body(),
 		})
-		c.Send("Hello, World!")
+		c.SendStatus(200)
 	})
 
 	return app

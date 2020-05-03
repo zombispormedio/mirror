@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"log"
 	"sync"
 	"time"
@@ -98,9 +97,6 @@ func createWatchServer() *fiber.App {
 
 	upgrader := websocket.New(func(c *websocket.Conn) {
 		observer := newRequestObserver(func(r WatchedRequest) {
-
-			response, _ := json.Marshal(r)
-			log.Println(string(response))
 			c.WriteJSON(r)
 		})
 
@@ -119,8 +115,6 @@ func createWatchServer() *fiber.App {
 				break
 			}
 		}
-	}, websocket.Config{
-		HandshakeTimeout: 5 * time.Second,
 	})
 
 	app.Get("/ws", upgrader)
