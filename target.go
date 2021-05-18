@@ -15,6 +15,7 @@ func createTargetServer() *fiber.App {
 			Method: c.Method(),
 			Sent:   time.Now(),
 			Body:   c.Body(),
+			Headers: string(c.Fasthttp.Request.Header.Header()),
 		})
 		c.SendStatus(200)
 	})

@@ -15,8 +15,8 @@ type WatchedRequest struct {
 	Path   string `json:"path"`
 	Method string `json:"method"`
 	Body   string `json:"body"`
-
 	Sent time.Time `json:"sent"`
+	Headers string `json:"headers"`
 }
 
 type Observer interface {

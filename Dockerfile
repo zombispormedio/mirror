@@ -16,4 +16,7 @@ FROM gcr.io/distroless/base
 COPY --from=build-env /go/bin/app /
 COPY --from=build-public-env /app/public /public
 
+EXPOSE 8080
+EXPOSE 4000
+
 CMD ["/app"]

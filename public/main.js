@@ -45,6 +45,7 @@ const App = () => {
     // Log messages from the server
     connection.onmessage = function (e) {
       const value = JSON.parse(e.data);
+      console.log(value);
       setMessages((prev) => [
         {
           ...value,
@@ -87,8 +88,29 @@ const App = () => {
                       ${
                         message.body &&
                         html`<${BorderBox} p="1rem" mr="1rem" bg="white">
+                          <h3>Body</h3>
                           <${ObjectInspector}
                             data=${message.body}
+                            expandLevel="5"
+                        /></${BorderBox}>`
+                      }
+
+                      ${
+                        message.headers &&
+                        html`<${BorderBox} p="1rem" mr="1rem" bg="white">
+                           <h3>Headers</h3>
+                          <${ObjectInspector}
+                            data=${message.headers
+                              .split("\r\n")
+                              .filter(Boolean)
+                              .reduce((acc, str) => {
+                                const values = str.split(": ");
+                                if (values.length >= 2) {
+                                  const [key, ...rest] = values;
+                                  acc[key] = rest.join(": ");
+                                }
+                                return acc;
+                              }, {})}
                             expandLevel="5"
                         /></${BorderBox}>`
                       }
